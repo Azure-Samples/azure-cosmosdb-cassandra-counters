@@ -66,53 +66,6 @@ public class UserRepository {
         LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"), row.getLong("user_count"));
     }
 
-    /**
-     * Delete user table.
-     */
-    public void deleteTable() {
-        final String query = "DROP TABLE IF EXISTS userprofile.user";
-        session.execute(query);
-    }
-
-    /**
-     * Insert a row into user table
-     *
-     * @param id   user_id
-     * @param name user_name
-     * @param city user_bcity
-     */
-    public void insertUser(PreparedStatement statement, int id, String name, String city) {
-        BoundStatement boundStatement = new BoundStatement(statement);
-        session.execute(boundStatement.bind(id, name, city));
-
-    }
-
-    /**
-     * Insert a row into user table
-     *
-     * @param id   user_id
-     * @param name user_name
-     * @param city user_bcity
-     */
-    public void updateUser(PreparedStatement statement, int id, String name, String city) {
-        BoundStatement boundStatement = new BoundStatement(statement);
-        session.execute(boundStatement.bind(id, name, city));
-    }
-
-
-    /**
-     * Create a PrepareStatement to insert a row to user table
-     *
-     * @return PreparedStatement
-     */
-
-    /*    public PreparedStatement prepareInsertStatement(){
-
-
-        //final String insertStatement = "INSERT INTO  userprofile.user (user_id, user_name , user_bcity, user_count) VALUES (?,?,?,?)";
-        //return session.prepare(insertStatement);
-    }*/
-
 
     public void executeQuery(int id, String name, String city){
         Statement query = QueryBuilder.update("userprofile","user")
@@ -121,24 +74,10 @@ public class UserRepository {
                 .and(eq("user_bcity", city))
                 .with(incr("user_count", 1)); // Use incr for counters
 
-       /* QueryBuilder.insertInto("user").value("user_id", id)
-                .value("user_name", name)
-                .value("user_bcity", city);*/
-
         session.execute(query);
 
     }
 
-
-    /**
-     * Create a PrepareStatement to update a row to user table
-     *
-     * @return PreparedStatement
-     */
-    public PreparedStatement prepareUpdateStatement() {
-        final String updateStatement = "UPDATE userprofile.user set user_count = user_count + 1 where user_id = ?, user_name = ? , user_bcity = ?) VALUES(?,?,?)";
-        return session.prepare(updateStatement);
-    }
 
 
 
