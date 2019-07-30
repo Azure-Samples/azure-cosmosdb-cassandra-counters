@@ -17,8 +17,6 @@ testcassandra@cqlsh> update lprofile.weblogs set page_count = page_count + 1 whe
 
 ## Development - Counters from Java data-stax drivers
 
-### Install dependencies
-
 1. Clone the repository <br />  
 2. Open a terminal in the local repo directory <br />  
 3. git clone https://github.com/jyotsnaravikumar/azure-cosmos-cassandra-counter.git <br />  
