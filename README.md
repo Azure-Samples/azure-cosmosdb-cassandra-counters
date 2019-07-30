@@ -1,8 +1,8 @@
-# Cosmos Cassandra Java samples
+# CosmosDB Cassandra Java samples
 
 A reference Java app using data-stax drivers for using cosmos cassandra counters
 
-##Counters from CQL
+## How to use Counters from CQL
 set SSL_VERSION=TLSv1_2 <br /> 
 set SSL_VALIDATE=false<br />  
 cqlsh.py testcassandra.cassandra.cosmos.azure.com 10350 -u <username> -p <key> <br /> 
@@ -15,7 +15,7 @@ testcassandra@cqlsh> select * from lprofile.weblogs; <br />
 testcassandra@cqlsh> update lprofile.weblogs set page_count = page_count + 1 where page_id = '1792ef1b-c297-4c08-9a11-805221ac2906' and page_name ='test.com' and insertion_time ='2019-07-25 00:05:36.089000+0000'; <br />  
 
 
-## Development - Counters from Java datastax drivers
+## Development - Counters from Java data-stax drivers
 
 ### Install dependencies
 
