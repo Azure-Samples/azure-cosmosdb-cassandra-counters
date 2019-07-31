@@ -39,7 +39,7 @@ testcassandra@cqlsh> update lprofile.weblogs set page_count = page_count + 1 whe
 
 1. Clone the repository <br />  
 2. Open a terminal in the local repo directory <br />  
-3. git clone https://github.com/jyotsnaravikumar/azure-cosmos-cassandra-counter.git <br />  
+3. git clone https://github.com/Azure-Samples/azure-cosmosdb-cassandra-counters.git <br />  
 4. cd cassandra-counter-demo <br />  
 5. mvn clean install <br />  
 6. java -cp target/cassandra-counter-demo.jar com.azure.cosmosdb.cassandra.examples.UserProfile <br />  
